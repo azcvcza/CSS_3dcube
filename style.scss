@@ -1,6 +1,12 @@
 $size:150px;
+body {
+    text-align: center;
+    padding: 50px;
+}
+
 .scene {
-    margin: 100px;
+    display: inline-block;
+    margin-top: 50px;
     width: $size;
     height: $size;
     perspective: 600px;
@@ -12,6 +18,7 @@ $size:150px;
     position: relative;
     transform-style: preserve-3d;
     transform: rotateX(30deg) rotateY(30deg);
+    transition: .5s ease-in-out;
 }
 
 .cube-face {
@@ -30,6 +37,7 @@ $size:150px;
 .cube-face-back {
     background: orange;
     transform: rotateY(180deg) translate3d(0, 0, $size/2);
+    transition: .5s ease-in-out;
 }
 
 .cube-face-left {
@@ -51,4 +59,27 @@ $size:150px;
 .cube-face-bottom {
     background: lightgrey;
     transform: rotateX(-90deg) translate3d(0, 0, $size/2);
+}
+
+
+/*control panel*/
+
+#radio-back:checked~.scene .cube {
+    transform: rotateY(180deg);
+}
+
+#radio-left:checked~.scene .cube {
+    transform: rotateY(90deg);
+}
+
+#radio-right:checked~.scene .cube {
+    transform: rotateY(-90deg);
+}
+
+#radio-top:checked~.scene .cube {
+    transform: rotateX(-90deg);
+}
+
+#radio-bottom:checked~.scene .cube {
+    transform: rotateX(90deg);
 }
